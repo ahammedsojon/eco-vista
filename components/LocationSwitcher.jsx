@@ -9,6 +9,7 @@ const LocationSwitcher = () => {
   const [showLocationList, setShowLocationList] = useState(false);
   const router = useRouter();
   const [locations, setLocations] = useState([]);
+  console.log(locations);
   useEffect(() => {
     const fetchLocations = async () => {
       const locations = await getLocationData();
@@ -33,18 +34,16 @@ const LocationSwitcher = () => {
             role="list"
             className="divide-y divide-gray-100 [&>*]:py-2 [&>li]:cursor-pointer"
           >
-            {locations &&
-              locations.length > 0 &&
-              locations.map((each) => (
-                <li key={each.location}>
-                  <Link
-                    href={`/${each.location}?latitude=${each.latitude}&longitude=${each.longitude}`}
-                    className="block"
-                  >
-                    {each.location}
-                  </Link>
-                </li>
-              ))}
+            {locations.map((each) => (
+              <li key={each.location}>
+                <Link
+                  href={`/${each.location}?latitude=${each.latitude}&longitude=${each.longitude}`}
+                  className="block"
+                >
+                  {each.location}
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       )}
