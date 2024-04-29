@@ -14,16 +14,16 @@ const LocationDetector = () => {
     setLoading(true);
     const params = new URLSearchParams(searchParams);
     if (navigator.geolocation) {
-      setTimeout(() => {
-        navigator.geolocation.getCurrentPosition((position) => {
-          params.set("latitude", position.coords.latitude);
-          params.set("longitude", position.coords.longitude);
+      navigator.geolocation.getCurrentPosition((position) => {
+        params.set("latitude", position.coords.latitude);
+        params.set("longitude", position.coords.longitude);
+        setTimeout(() => {
           setLoading(false);
           router.push(`/current?${params.toString()}`);
-        });
-      }, 2000);
+        }, 2000);
+      });
     }
-  }, [pathName, searchParams]);
+  }, [pathName, searchParams, router]);
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-slate-500 text-white">

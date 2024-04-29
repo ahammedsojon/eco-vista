@@ -2,7 +2,7 @@ import LocationInfo from "@/components/LocationInfo";
 import NoLocation from "@/components/NoLocation";
 import { getResolvedLatLon } from "@/lib/location-info";
 
-export default async function Home({
+export default async function LocationPage({
   params: { location },
   searchParams: { latitude, longitude },
 }) {
