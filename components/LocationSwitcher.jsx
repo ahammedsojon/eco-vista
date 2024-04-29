@@ -35,7 +35,6 @@ const LocationSwitcher = () => {
             className="divide-y divide-gray-100 [&>*]:py-2 [&>li]:cursor-pointer"
           >
             {locations &&
-              locations.length > 0 &&
               locations.map((each) => (
                 <li key={each.location}>
                   <Link
